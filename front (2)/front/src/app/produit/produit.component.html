@@ -1,0 +1,39 @@
+
+<div class="site-wrap">
+    <app-header></app-header>
+
+    <h2>Liste des produits</h2>
+
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">num</th>
+            <th scope="col">Nom du produit</th>
+          
+            <th scope="col">Prix</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of listproduit">
+            <th scope="row">{{product.id}}</th>
+            <td>{{product.name}}</td>
+         
+            <td>{{product.price}}</td>
+            <td><img class="img-fluid" src="http://localhost:8086/Product/files/{{product.photo}}" width="100" /></td>
+            <td>
+              <button *ngIf="role== admin " (click)="deleteProduct(product.id)" class="btn btn-sm btn-primary">Supprimer</button>
+              
+              <button  [routerLink]="['/detailproduit',product.id]"type="button" class="btn btn-sm btn-primary">Detail</button>
+                         
+              <button *ngIf="role== admin " [routerLink]="['/updateproduit',product.id]"type="button"class="btn btn-sm btn-primary">Update</button> 
+
+
+            </td>
+          </tr>
+        </tbody>
+    </table>
+      
+    <app-footer></app-footer>
+</div>

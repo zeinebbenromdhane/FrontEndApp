@@ -1,0 +1,36 @@
+
+
+<div class="site-wrap">
+    <app-header></app-header>
+
+    <main>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">num</th>
+                    <th scope="col">Nom d'utilisateur</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let client of Listclient let i=index">
+                    <td scope="row">{{i+1}}</td>
+                    
+                    <td>{{ client.username }}</td>
+                    <td>{{ client.email }}</td>
+                    <td><img class="img-fluid" src="http://localhost:8086/client/files/{{client.photo}}" width="100" /></td>
+                    <td>
+                        <button (click)="deleteClient(client.id)" class="btn btn-sm btn-primary">Supprimer</button>
+                        <button [routerLink]="['/detailclient',client.id]"type="button" class="btn btn-sm btn-primary">Detail</button>
+                         
+                        <button [routerLink]="['/updateclient',client.id]"type="button"class="btn btn-sm btn-primary">Mettre à jour</button> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <app-footer></app-footer>
+</div>

@@ -1,0 +1,29 @@
+
+<div class="site-wrap">
+     
+    <app-header></app-header>
+
+
+
+
+
+<br><br><br><br>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="card">
+
+  <img class="img-fluid" src="http://localhost:8086/Product/files/{{detailproduit.photo}}" width="width:100%"  >
+  <h1>nom:{{detailproduit.name}}</h1>
+  <p class="title">prix: {{detailproduit.price}}</p>
+  <p>categorie: {{detailproduit.categoryX.name}}</p>
+  
+  <p><button (click)="commander()"> Commander</button></p>
+</div>
+
+
+<app-footer></app-footer>
+   
+
+</div>
+

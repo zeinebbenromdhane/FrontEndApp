@@ -1,0 +1,40 @@
+<div class="site-wrap">
+     
+    <app-header></app-header>
+
+
+
+
+
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">num</th>
+            <th scope="col"> name </th>
+            <th scope="col">Description</th>
+            <th scope="col">action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of listcategory |paginate:{itemsPerPage:3,currentPage:c}; let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{category.name}}</td>
+            <td>{{category.description}}</td>
+            <td>
+              <button  *ngIf="role== admin " (click)="deleteCategory(category.id)" class="btn btn-sm btn-primary">Delete</button>
+              <!--
+              <button  [routerLink]="['/detailcategory',category.id]"type="button" class="btn btn-sm btn-primary">detail</button>
+                 -->        
+              <button *ngIf="role== admin " [routerLink]="['/updatecategory',category.id]"type="button"class="btn btn-sm btn-primary">Update</button> 
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="c=$event"></pagination-controls>
+     
+    <app-footer></app-footer>
+   
+
+    </div>
+
